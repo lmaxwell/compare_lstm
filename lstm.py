@@ -3,7 +3,7 @@ import numpy as np
 import time
 
 NUM_LSTM=1
-LSTM_UNIT=256
+LSTM_UNIT=512
 LENGTH=1000
 INPUT_DIM=2*LSTM_UNIT
 

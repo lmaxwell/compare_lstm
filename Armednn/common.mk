@@ -8,7 +8,7 @@ cxxflags:= -std=c++11 -Wall
 cxxflags+=-DEIGEN_RUNTIME_NO_MALLOC  
 
 #eigen vectorization
-cxxflags+= -msse4.2 -mavx2 -mfma -O2 
+cxxflags+= -msse4.2 -mavx2 -mfma -O3
 
 
 #avx compatible(eigen)
@@ -26,6 +26,6 @@ cxxflags+=-DEIGEN_MPL2_ONLY
 cxxflags+=-fPIC
 ############### cxxflags #############
 
-cxxflags+= -fopenmp
+#cxxflags+= -fopenmp
 
 

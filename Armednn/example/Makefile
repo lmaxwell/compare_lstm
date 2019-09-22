@@ -14,7 +14,7 @@ libpath:=$(shell pwd)/../lib
 ldflags:=-L$(libpath) -larmednn -fopenmp
 
 ifneq ($(MKLROOT),)
-	MKLLIBS:=-Wl,--start-group $(MKLROOT)/lib/intel64_lin/libmkl_intel_lp64.a \
+	MKLLIBS:=-Wl,--start-group $(MKLROOT)/lib/intel64_lin/libmkl_intel_ilp64.a \
 		$(MKLROOT)/lib/intel64_lin/libmkl_gnu_thread.a \
 		$(MKLROOT)/lib/intel64_lin/libmkl_core.a -Wl,--end-group -lpthread -lm -ldl
 endif
@@ -36,7 +36,7 @@ $(exes): % : %.o
 ifeq ($(link),dynamic)
 	$(cxx)  $(ldflags) -Wl,-rpath $(libpath) $(MKLLIBS) $*.o -o $@
 else
-	$(cxx)   -fopenmp -Wl,--whole-archive $(libpath)/libarmednn.a -Wl,--no-whole-archive $(MKLLIBS) $*.o -o $@
+	$(cxx) -fopenmp    -Wl,--whole-archive $(libpath)/libarmednn.a -Wl,--no-whole-archive $(MKLLIBS) $*.o -o $@
 endif
 
 

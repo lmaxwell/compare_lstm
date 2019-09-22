@@ -16,7 +16,7 @@ objs:=$(addprefix .temp/, $(srcs:.cpp=.o))
 # mkl 
 ifneq ($(MKLROOT),)
 	MKLROOT_PATH:=$(shell cd $(MKLROOT);pwd)
-	cxxflags+= -I$(MKLROOT)/include -DEIGEN_USE_MKL_ALL -DMKL_LP64 -m64
+	cxxflags+= -I$(MKLROOT)/include -DEIGEN_USE_MKL_ALL -DMKL_ILP64 -m64
 endif
 
 build:=lib

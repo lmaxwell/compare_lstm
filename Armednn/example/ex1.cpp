@@ -353,7 +353,7 @@ void ex7()
 
 
     int L=1000;
-    int C=512;
+    int C=1024;
 
     auto input_node=make_input("input");
 
