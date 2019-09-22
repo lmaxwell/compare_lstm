@@ -4,12 +4,13 @@ import time
 
 NUM_LSTM=1
 LSTM_UNIT=256
-LENGTH=2000
+LENGTH=1000
+INPUT_DIM=2*LSTM_UNIT
 
 def build_graph():
 
 
-    inputs = tf.placeholder(dtype=tf.float32,shape=[None,None,LSTM_UNIT])
+    inputs = tf.placeholder(dtype=tf.float32,shape=[None,None,INPUT_DIM])
     lengths= tf.placeholder(dtype=tf.int64,shape=[None])
 
 
@@ -42,7 +43,7 @@ def run_graph():
     outputs=tf.get_collection("outputs")
 
     length=LENGTH
-    x=np.random.rand(1,length,LSTM_UNIT)
+    x=np.random.rand(1,length,INPUT_DIM)
     length=np.array(length).reshape([-1])
     
 
@@ -62,7 +63,7 @@ def run_graph():
         for i in range(1,20):
             start_time=time.time()
             length=LENGTH+i
-            x=np.random.rand(1,length,LSTM_UNIT)
+            x=np.random.rand(1,length,INPUT_DIM)
             length=np.array(length).reshape([-1])
             sess.run(outputs,feed_dict=dict(zip(inputs,[x,length])))
             print("step {}, time cost: {}".format(i,time.time()-start_time))
