@@ -335,12 +335,12 @@ void ex6()
         INFO<<"begin";
         timer.reset();
         conv1d_0->run();
-        INFO<<"conv1d end cost:"<< timer.elapsed();
+        std::cout<<"conv1d end cost:"<< timer.elapsed()<<std::endl;
         timer.reset();
         dense_1->run();
         dense_2->run();
         dense_3->run();
-        INFO<<"all end cost:"<< timer.elapsed();
+        std::cout<<"all end cost:"<< timer.elapsed()<<std::endl;
         L=L+100;
     }
 
@@ -352,7 +352,7 @@ void ex7()
 {
 
 
-    int L=2000;
+    int L=1000;
     int C=512;
 
     auto input_node=make_input("input");
@@ -386,7 +386,7 @@ void ex7()
         timer.reset();
         lstm_0->run();
         std::cout<<"lstm end cost:"<< timer.elapsed()<<std::endl;
-        L=L+100;
+        L=L+1;
     }
 
     //INFO<<dense_3->output(0)->get();
@@ -415,8 +415,8 @@ int main()
     ex3();
     ex4();
     ex5();
-    ex6();
     */
+    ex6();
     ex7();
 
 

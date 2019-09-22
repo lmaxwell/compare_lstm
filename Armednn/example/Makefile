@@ -15,7 +15,7 @@ ldflags:=-L$(libpath) -larmednn -fopenmp
 
 ifneq ($(MKLROOT),)
 	MKLLIBS:=-Wl,--start-group $(MKLROOT)/lib/intel64_lin/libmkl_intel_lp64.a \
-		$(MKLROOT)/lib/intel64_lin/libmkl_sequential.a \
+		$(MKLROOT)/lib/intel64_lin/libmkl_gnu_thread.a \
 		$(MKLROOT)/lib/intel64_lin/libmkl_core.a -Wl,--end-group -lpthread -lm -ldl
 endif
 
